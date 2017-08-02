@@ -1,0 +1,15 @@
+#sidenav-container {
+    height: 100%;
+}
+
+#sidenav {
+    width: 200px;
+}
+
+#sidenav .titre {
+    text-align: center;
+}
+
+#app-content {
+    padding: 15px 10px;
+}

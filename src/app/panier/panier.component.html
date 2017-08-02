@@ -1,0 +1,8 @@
+<md-list>
+  <md-list-item *ngFor="let article of panier | async; let i = index">
+    <span>{{article.name}}</span>
+    <button md-icon-button (click)="removeFromPanier(i)">
+      <md-icon>remove_shopping_cart</md-icon>
+    </button>
+  </md-list-item>
+</md-list>
