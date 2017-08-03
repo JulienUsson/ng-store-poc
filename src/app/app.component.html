@@ -1,6 +1,8 @@
-<md-toolbar color="primary">
+<md-toolbar color="primary" id="toolbar">
   <span>My Fabulous Shop App</span>
-  <button md-icon-button (click)="sidenav.toggle()">
+  <span class="spacer"></span>
+  <span *ngIf="(panier | async).length">({{(panier | async).length}})</span>
+  <button md-icon-button (click)="sidenav.toggle()" class="button">
     <md-icon>shopping_cart</md-icon>
   </button>
 </md-toolbar>

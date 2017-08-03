@@ -1,28 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Article } from '../article';
-import { Store } from '@ngrx/store';
-import { ADD } from '../reducers/panier';
-
-interface AppState {
-  panier: Array<Article>;
-}
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  styleUrls: ['./article.component.css'],
 })
 export class ArticleComponent implements OnInit {
-  panier: Observable<Array<Article>>;
+  @Output() onAddToPanierClick = new EventEmitter();
   @Input() article: Article;
 
-  constructor(private store: Store<AppState>) {
-    this.panier = store.select('panier');
-  }
-
-  addToPanier(article: Article) {
-    this.store.dispatch({ type: ADD, payload: article });
+  addToPanier() {
+    this.onAddToPanierClick.emit(this.article);
   }
 
   ngOnInit() {

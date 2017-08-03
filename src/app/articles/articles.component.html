@@ -3,7 +3,7 @@
   <md-card-content>
     <md-list>
       <md-list-item *ngFor="let article of articles | async">
-        <app-article [article]="article"></app-article>
+        <app-article [article]="article" (onAddToPanierClick)="addToPanier($event)"></app-article>
       </md-list-item>
     </md-list>
   </md-card-content>
